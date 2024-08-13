@@ -81,9 +81,9 @@ export class ProductsService {
       product.brand = brand;
     }
     if (changes.categoriesIds) {
-      const categories = await this.categoryRepo.findByIds(
-        changes.categoriesIds,
-      );
+      const categories = await this.categoryRepo.findBy({
+        id: In(changes.categoriesIds),
+      });
       product.categories = categories;
     }
     this.productRepo.merge(product, changes);
