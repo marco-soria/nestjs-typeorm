@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
 import { HttpModule, HttpService } from '@nestjs/axios';
-import { lastValueFrom } from 'rxjs';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
-
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,8 +10,7 @@ import { ProductsModule } from './products/products.module';
 import { DatabaseModule } from './database/database.module';
 import { environments } from './environments';
 import config from './config';
-
-
+import { lastValueFrom } from 'rxjs';
 
 @Module({
   imports: [
