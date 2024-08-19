@@ -25,7 +25,6 @@
     "migrations:drop": "pnpm run typeorm schema:drop",
     "migrations:show": "pnpm run typeorm migration:show",
     "seed:run": "ts-node ./src/seeds/seeder.ts"
-
   },
   "dependencies": {
     "@nestjs/axios": "^3.0.2",
@@ -39,6 +38,8 @@
     "axios": "^1.7.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "cross-env": "^7.0.3",
+    "dot-env": "^0.0.1",
     "joi": "^17.13.3",
     "mysql2": "^3.11.0",
     "pg": "^8.12.0",

@@ -18,3 +18,5 @@ export const dataSourceOptions: DataSourceOptions = {
 
 const dataSource = new DataSource(dataSourceOptions);
 export default dataSource;
+
+//"typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d dist/database/data-source.js",
