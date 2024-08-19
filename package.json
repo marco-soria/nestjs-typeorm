@@ -6,7 +6,6 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -19,11 +18,14 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "migrations:generate": "npm run typeorm -- migration:generate -n",
-    "migrations:run": "npm run typeorm -- migration:run",
-    "migrations:show": "npm run typeorm -- migration:show",
-    "migrations:drop": "npm run typeorm -- schema:drop"
+    "typeorm": "pnpm run build && pnpm exec typeorm-ts-node-commonjs -d dist/database/data-source.js",
+    "migrations:generate": "pnpm run typeorm migration:generate",
+    "migrations:run": "pnpm run typeorm migration:run",
+    "migrations:revert": "pnpm run typeorm migration:revert",
+    "migrations:drop": "pnpm run typeorm schema:drop",
+    "migrations:show": "pnpm run typeorm migration:show",
+    "seed:run": "ts-node ./src/seeds/seeder.ts"
+
   },
   "dependencies": {
     "@nestjs/axios": "^3.0.2",
